@@ -11,6 +11,8 @@ kargs = {
     "title": "NagMe"
 }
 
+print "Starting nag process"
+
 for index, nag in enumerate(nagutil.get_nags()):
     if nag[2]:
         continue
@@ -20,3 +22,5 @@ for index, nag in enumerate(nagutil.get_nags()):
         Notifier.notify(nag[0], **kargs)
         # Just nag the first thing that needs to be done
         break
+
+print "Done with nagging"

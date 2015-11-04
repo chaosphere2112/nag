@@ -56,6 +56,10 @@ def create_launchd_script(seconds):
     </array>
     <key>StartInterval</key>
     <integer>%d</integer>
+    <key>StandardOutPath</key>
+    <string>/var/log/nagme.log</string>
+    <key>StandardErrorPath</key>
+    <string>/var/log/nagme_err.log</string>
 </dict>
 </plist>""" % seconds
     path = os.path.expanduser("~/Library/LaunchAgents/com.nagme.donag.plist")

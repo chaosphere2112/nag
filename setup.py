@@ -9,7 +9,7 @@ setup(
     author="Sam Fries",
     author_email="fries2@llnl.gov",
     packages=find_packages(),
-    scripts=["scripts/nagupdate", "scripts/nagme"],
+    scripts=["scripts/nagupdate", "scripts/nagme", "scripts/nagfreq"],
     install_requires=["python-dateutil", "pync"]
 )
 
