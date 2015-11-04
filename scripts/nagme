@@ -1,0 +1,22 @@
+#! /usr/bin/env python
+
+from pync import Notifier
+from datetime import datetime
+import nag as nagutil
+
+
+open_term = """osascript -e 'tell application "Terminal" to activate' -e 'tell application "System Events" to tell process "Terminal" to keystroke "n" using command down' -e 'tell application "Terminal" to do script "nagupdate %d" in selected tab of the front window'"""
+
+kargs = {
+    "title": "NagMe"
+}
+
+for index, nag in enumerate(nagutil.get_nags()):
+    if nag[2]:
+        continue
+    time = nag[1]
+    if time is None or time <= datetime.now():
+        kargs["execute"] = open_term % index
+        Notifier.notify(nag[0], **kargs)
+        # Just nag the first thing that needs to be done
+        break
