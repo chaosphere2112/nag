@@ -71,3 +71,19 @@ We'll nag you every 15 minutes
 $ nagcron 120
 We'll nag you every 2 hours
 ```
+
+## Uninstall
+
+To remove the scripts:
+
+```
+python setup.py uninstall
+```
+
+To remove the OSX bits (Sorry, this is messy):
+
+```
+rm -rf ~/Library/Services/addnag.workflow
+launchctl unload ~/Library/LaunchAgents/com.nagme.donag.plist
+rm ~/Library/LaunchAgents/com.nagme.donag.plist
+```
