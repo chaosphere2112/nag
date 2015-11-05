@@ -11,7 +11,8 @@ kargs = {
     "title": "NagMe"
 }
 
-print "Starting nag process"
+import getpass
+import sys
 
 for index, nag in enumerate(nagutil.get_nags()):
     if nag[2]:
@@ -19,8 +20,7 @@ for index, nag in enumerate(nagutil.get_nags()):
     time = nag[1]
     if time is None or time <= datetime.now():
         kargs["execute"] = open_term % index
-        Notifier.notify(nag[0], **kargs)
+        result = Notifier.notify(nag[0], **kargs)
+        result.wait()
         # Just nag the first thing that needs to be done
         break
-
-print "Done with nagging"
