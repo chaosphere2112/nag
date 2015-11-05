@@ -1,10 +1,8 @@
 # NagMe
 
-Simple notification-center based to-do tracker.
+Simple notification-center based to-do tracker with a `launchd` integration for polling.
 
 ## Install
-
-Make sure you use the system python, otherwise the cron job won't work.
 
 ```
 python setup.py install
